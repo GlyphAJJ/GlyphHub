@@ -1,5 +1,7 @@
+-- Reordered and structured variable declarations
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
+-- Game Services
 local HttpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 local TeleportService = game:GetService("TeleportService")
@@ -7,10 +9,12 @@ local players = game:GetService("Players")
 local wrk = game:GetService("Workspace")
 local UserInputService = game:GetService("UserInputService")
 
+-- Player Variables
 local plr = players.LocalPlayer
 local camera = wrk.CurrentCamera
 local mouse = plr:GetMouse()
 
+-- Character Variables
 local hrp
 local humanoid
 
@@ -25,8 +29,10 @@ if plr.Character then
     onCharacterAdded(plr.Character)
 end
 
+-- HTTP Request handling for different executors
 local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 
+-- Aimbot Variables
 local aimFov = 100
 local aimParts = {"Head"}
 local aiming = false
@@ -40,6 +46,7 @@ local teamCheck = false
 local healthCheck = false
 local minHealth = 0
 
+-- Combat Variables (Merged from Combat Tab)
 local triggerBotEnabled = false
 local autoWallbangEnabled = false
 local silentAimEnabled = false
@@ -48,12 +55,15 @@ local autoShootEnabled = false
 local recoilControlEnabled = false
 local recoilControlStrength = 50
 
+-- FOV Circle Variables
 local hue = 0
 local rainbowFov = false
 local rainbowSpeed = 0.005
-local circleColor = Color3.fromRGB(0, 255, 0)
-local targetedCircleColor = Color3.fromRGB(128, 0, 128)
+-- Changed default FOV colors
+local circleColor = Color3.fromRGB(0, 255, 0)  -- Changed from red to green
+local targetedCircleColor = Color3.fromRGB(128, 0, 128)  -- Changed to purple
 
+-- Silent Aim Circle Variables
 local silentAimCircle = Drawing.new("Circle")
 silentAimCircle.Thickness = 2
 silentAimCircle.Radius = silentAimFov
@@ -62,12 +72,15 @@ silentAimCircle.Color = Color3.fromRGB(255, 0, 255)
 silentAimCircle.Visible = false
 silentAimCircle.Transparency = 0.7
 
+-- SpinBot Variables
 local spinBot = false
 local spinBotSpeed = 20
 
+-- Aim Viewer Variables
 local aimViewerEnabled = false
 local ignoreSelf = true
 
+-- ESP Variables
 local espEnabled = false
 local boxEsp = false
 local nameEsp = false
@@ -77,16 +90,19 @@ local tracerEsp = false
 local teamColorEsp = false
 local espObjects = {}
 
+-- Chams Variables
 local chamsEnabled = false
 local chamsTransparency = 0.5
 local chamsObjects = {}
 
+-- Movement Variables
 local speedHackEnabled = false
 local speedMultiplier = 2
 local flyEnabled = false
 local flySpeed = 50
 local infiniteJumpEnabled = false
 
+-- Create Window
 local Window = Rayfield:CreateWindow({
     Name = "Glyph Hub",
     LoadingTitle = "Loading.",
@@ -98,12 +114,14 @@ local Window = Rayfield:CreateWindow({
     },
 })
 
+-- Create Tabs
 local Main = Window:CreateTab("Main")
 local Aimbot = Window:CreateTab("Aimbot")
 local VisualTab = Window:CreateTab("Visuals")
 local MovementTab = Window:CreateTab("Movement")
 local Miscellaneous = Window:CreateTab("Miscellaneous")
 
+-- FOV Circle
 local fovCircle = Drawing.new("Circle")
 fovCircle.Thickness = 2
 fovCircle.Radius = aimFov
@@ -207,6 +225,7 @@ local function aimAt(player, part)
     end
 end
 
+-- Auto Wallbang Function
 local function autoWallbang(target, part)
     if target and part and autoWallbangEnabled then
         local gun = plr.Character:FindFirstChildWhichIsA("Tool")
@@ -222,6 +241,7 @@ local function autoWallbang(target, part)
     end
 end
 
+-- Trigger Bot Function
 local function checkTriggerBot()
     if triggerBotEnabled then
         local ray = camera:ScreenPointToRay(mouse.X, mouse.Y)
@@ -241,6 +261,7 @@ local function checkTriggerBot()
     end
 end
 
+-- Silent Aim Function
 local function applySilentAim()
     if silentAimEnabled then
         local target, part = getTarget()
@@ -254,6 +275,7 @@ local function applySilentAim()
     return nil
 end
 
+-- ESP Functions
 local function createESPObjects(player)
     if player == plr then return end
     
@@ -313,6 +335,7 @@ local function updateESP()
                 if onScreen and espEnabled then
                     local teamColor = player.TeamColor.Color
                     
+                    -- Update box
                     if boxEsp then
                         local rootPos = camera:WorldToViewportPoint(humanoidRootPart.Position)
                         local size = Vector2.new(1000 / rootPos.Z, 2000 / rootPos.Z)
@@ -324,6 +347,7 @@ local function updateESP()
                         esp.box.Visible = false
                     end
                     
+                    -- Update name
                     if nameEsp then
                         esp.name.Text = player.Name
                         esp.name.Position = Vector2.new(headPos.X, headPos.Y - 40)
@@ -333,6 +357,7 @@ local function updateESP()
                         esp.name.Visible = false
                     end
                     
+                    -- Update distance
                     if distanceEsp then
                         local distance = math.floor((plr.Character.HumanoidRootPart.Position - humanoidRootPart.Position).Magnitude)
                         esp.distance.Text = tostring(distance) .. "m"
@@ -343,6 +368,7 @@ local function updateESP()
                         esp.distance.Visible = false
                     end
                     
+                    -- Update health bar
                     if healthBarEsp then
                         local rootPos = camera:WorldToViewportPoint(humanoidRootPart.Position)
                         local size = Vector2.new(1000 / rootPos.Z, 2000 / rootPos.Z)
@@ -362,6 +388,7 @@ local function updateESP()
                         esp.healthBarFill.Visible = false
                     end
                     
+                    -- Update tracer
                     if tracerEsp then
                         esp.tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y)
                         esp.tracer.To = Vector2.new(headPos.X, headPos.Y)
@@ -400,6 +427,7 @@ local function updateESP()
     end
 end
 
+-- Chams Functions
 local function applyChams(player)
     if player == plr then return end
     
@@ -437,16 +465,19 @@ local function removeChams()
     chamsObjects = {}
 end
 
+-- Initialize ESP for existing players
 for _, player in ipairs(players:GetPlayers()) do
     if player ~= plr then
         createESPObjects(player)
     end
 end
 
+-- Connect player added event
 players.PlayerAdded:Connect(function(player)
     createESPObjects(player)
 end)
 
+-- Connect player removing event
 players.PlayerRemoving:Connect(function(player)
     if espObjects[player] then
         local esp = espObjects[player]
@@ -460,6 +491,7 @@ players.PlayerRemoving:Connect(function(player)
     end
 end)
 
+-- Recoil Control Function
 local function applyRecoilControl()
     if recoilControlEnabled then
         local gun = plr.Character:FindFirstChildWhichIsA("Tool")
@@ -519,12 +551,14 @@ RunService.RenderStepped:Connect(function()
             if currentTarget and currentTargetPart then
                 aimAt(currentTarget, currentTargetPart)
                 
+                -- Auto Shoot logic
                 if autoShootEnabled then
                     mouse1press()
                     task.wait(0.1)
                     mouse1release()
                 end
                 
+                -- Auto Wallbang logic
                 autoWallbang(currentTarget, currentTargetPart)
             end
         else
@@ -532,6 +566,7 @@ RunService.RenderStepped:Connect(function()
         end
     end
     
+    -- Update Silent Aim FOV Circle
     if silentAimEnabled then
         silentAimCircle.Position = Vector2.new(mouse.X, mouse.Y + 50)
         silentAimCircle.Radius = silentAimFov
@@ -540,18 +575,24 @@ RunService.RenderStepped:Connect(function()
         silentAimCircle.Visible = false
     end
     
+    -- Check TriggerBot logic
     checkTriggerBot()
     
+    -- Apply recoil control
     applyRecoilControl()
     
+    -- Update ESP
     updateESP()
     
+    -- Update Chams
     updateChams()
     
+    -- Handle speed hack
     if speedHackEnabled and humanoid then
         humanoid.WalkSpeed = 16 * speedMultiplier
     end
     
+    -- Handle fly hack
     if flyEnabled and hrp then
         local flyForce = Instance.new("BodyVelocity")
         flyForce.Parent = hrp
@@ -569,6 +610,7 @@ RunService.RenderStepped:Connect(function()
     end
 end)
 
+-- Hooking mouse events for silent aim
 local oldNamecall
 oldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
     local args = {...}
@@ -582,7 +624,7 @@ oldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
     end
     
     return oldNamecall(self, unpack(args))
-end
+end)
 
 mouse.Button2Down:Connect(function()
     if aimbotEnabled then
@@ -596,12 +638,14 @@ mouse.Button2Up:Connect(function()
     end
 end)
 
+-- Infinite Jump
 UserInputService.JumpRequest:Connect(function()
     if infiniteJumpEnabled and humanoid then
         humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
     end
 end)
 
+-- Main Tab
 Main:CreateSection("Welcome to  Glyph Hub by glyphaj")
 
 Main:CreateLabel("The Ultimate Cheating Hub For Free.")
@@ -619,6 +663,7 @@ Main:CreateButton({
     end,
 })
 
+-- Aimbot Tab (Merged with Combat Tab)
 Aimbot:CreateSection("Aimbot Settings")
 
 local aimbot = Aimbot:CreateToggle({
@@ -764,6 +809,7 @@ local minhealth = Aimbot:CreateSlider({
     end,
 })
 
+-- Combat Settings (Now in Aimbot Tab)
 Aimbot:CreateSection("Combat Settings")
 
 local triggerbot = Aimbot:CreateToggle({
@@ -931,6 +977,7 @@ local chamstransparencytoggle = VisualTab:CreateSlider({
     end,
 })
 
+-- Movement Tab
 MovementTab:CreateSection("Speed Settings")
 
 local speedhacktoggle = MovementTab:CreateToggle({
@@ -940,7 +987,7 @@ local speedhacktoggle = MovementTab:CreateToggle({
     Callback = function(Value)
         speedHackEnabled = Value
         if not Value and humanoid then
-            humanoid.WalkSpeed = 16
+            humanoid.WalkSpeed = 16 -- Reset to default
         end
     end
 })
@@ -995,6 +1042,7 @@ local infinitejumptoggle = MovementTab:CreateToggle({
     end
 })
 
+-- Miscellaneous Tab
 Miscellaneous:CreateSection("Player Settings")
 
 local spinbottoggle = Miscellaneous:CreateToggle({
@@ -1089,6 +1137,7 @@ local rejoinserver = Miscellaneous:CreateButton({
     end,
 })
 
+-- Additional Miscellaneous Features
 Miscellaneous:CreateSection("Additional Features")
 
 local aimviewertoggle = Miscellaneous:CreateToggle({
@@ -1099,6 +1148,7 @@ local aimviewertoggle = Miscellaneous:CreateToggle({
         aimViewerEnabled = Value
         
         if Value then
+            -- Create aim viewer lines for all players
             for _, player in pairs(players:GetPlayers()) do
                 if player ~= plr or not ignoreSelf then
                     local line = Drawing.new("Line")
@@ -1106,16 +1156,19 @@ local aimviewertoggle = Miscellaneous:CreateToggle({
                     line.Color = Color3.fromRGB(255, 0, 0)
                     line.Visible = true
                     
+                    -- Store in table with update logic in RunService
                     if not player:FindFirstChild("AimLine") then
                         local aimViewer = Instance.new("Folder")
                         aimViewer.Name = "AimLine"
                         aimViewer.Parent = player
                         
+                        -- Line object is stored in the instance as an attribute
                         aimViewer:SetAttribute("LineObject", line)
                     end
                 end
             end
         else
+            -- Remove all aim viewer lines
             for _, player in pairs(players:GetPlayers()) do
                 local aimViewer = player:FindFirstChild("AimLine")
                 if aimViewer then
@@ -1139,6 +1192,7 @@ local ignoreselftoggle = Miscellaneous:CreateToggle({
     end
 })
 
+-- Update aim viewer lines
 RunService.RenderStepped:Connect(function()
     if aimViewerEnabled then
         for _, player in pairs(players:GetPlayers()) do
@@ -1150,6 +1204,7 @@ RunService.RenderStepped:Connect(function()
                         local head = player.Character.Head
                         local headPos = camera:WorldToViewportPoint(head.Position)
                         
+                        -- Calculate where the player is aiming (simplified)
                         local lookVector = (player.Character.Head.CFrame * CFrame.new(0, 0, -10)).Position
                         local lookPos = camera:WorldToViewportPoint(lookVector)
                         
@@ -1167,6 +1222,7 @@ RunService.RenderStepped:Connect(function()
     end
 end)
 
+-- Server-side anti-cheat bypass (basic approach)
 Miscellaneous:CreateSection("Protection")
 
 local antiKickToggle = Miscellaneous:CreateToggle({
@@ -1175,6 +1231,7 @@ local antiKickToggle = Miscellaneous:CreateToggle({
     Flag = "AntiKick",
     Callback = function(Value)
         if Value then
+            -- Hook the kick function to prevent it from executing
             local oldKick
             oldKick = hookfunction(plr.Kick, function(...)
                 local args = {...}
@@ -1196,6 +1253,7 @@ local antiBanToggle = Miscellaneous:CreateToggle({
     Flag = "AntiBan",
     Callback = function(Value)
         if Value then
+            -- Attempt to hook remote events commonly used for banning
             for _, v in pairs(game:GetDescendants()) do
                 if v:IsA("RemoteEvent") and (string.match(v.Name:lower(), "ban") or string.match(v.Name:lower(), "kick") or string.match(v.Name:lower(), "punish")) then
                     local oldFireServer = v.FireServer
@@ -1215,6 +1273,7 @@ local antiBanToggle = Miscellaneous:CreateToggle({
     end
 })
 
+-- Update notification on script load
 Rayfield:Notify({
     Title = "Glyph Hub Loaded",
     Content = "Script successfully loaded! Created by glyphaj",
