@@ -6,8 +6,12 @@ Here is some information of what my scripts are and what they do please scroll t
 🌐 Glyph Silent - Universal silent aim script.
 
 📜 Loadstring:
-Glyph Hub Loadstring: loadstring(game:HttpGet("https://raw.githubusercontent.com/GlyphAJJ/GlyphHub/refs/heads/main/aimlockbyglyphaj.lua"))()
-Glyph Silent Loadstring: loadstring(game:HttpGet("https://raw.githubusercontent.com/GlyphAJJ/GlyphHub/refs/heads/main/GlyphSilent.lua"))()
+
+Glyph Hub Loadstring:
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GlyphAJJ/GlyphHub/refs/heads/main/aimlockbyglyphaj.lua"))()
+
+Glyph Silent Loadstring:
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GlyphAJJ/GlyphHub/refs/heads/main/GlyphSilent.lua"))()
 
 
 📱 Socials:
