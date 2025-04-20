@@ -14,6 +14,8 @@ Glyph Silent Loadstring:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/GlyphAJJ/GlyphHub/refs/heads/main/GlyphSilent.lua"))()
 
 
+👾Report an error in the discord server to recive bug hunter role: https://discord.gg/C6KDYq9Peb
+
 📱 Socials:
 https://youtube.com/@glyphaj
 https://tiktok.com/@glyphaj
