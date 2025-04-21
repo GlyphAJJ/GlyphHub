@@ -27,12 +27,12 @@ A universal script packed with powerful features such as no-clip, spinbot, aimbo
 
 ---
 
-### 🟣 **Glyph Silent**
+### 🟢 **Glyph Silent**
 **Description:**  
 A universal silent aim script for precise and stealthy target locking. This script is designed to give you an advantage with minimal detection.  
 
 **Main Features:**
-- **Silent Aim** - Allows for precise aiming without alerting others to your position.
+- **Silent Aim** - Allows for more precise aiming with the help of software enhancements with minimal detection.
 
 ---
 
