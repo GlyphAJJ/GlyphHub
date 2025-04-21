@@ -19,11 +19,11 @@ Welcome to my repository! Here you will find my collection of Lua scripts, each 
 A universal script packed with powerful features such as no-clip, spinbot, aimbot, flying, ESP, and more! This script is designed to improve your gameplay with various functionalities.  
 
 **Main Features:**
-- **No-clip** - Fly through walls and obstacles.
+- **No-clip** - Walk through walls and obstacles.
 - **Spinbot** - Automatically spin in place to confuse enemies.
-- **Aimbot** - Auto-aim at your targets.
+- **Aimbot** - Lock on to your targets.
 - **Flying** - Enables flight mode for free movement.
-- **ESP** - Highlights in-game objects for easy identification.
+- **ESP** - Highlights in-game players for easy identification.
 
 ---
 
