@@ -54,7 +54,7 @@ To use any of the scripts, simply copy and paste the loadstring into your Lua ex
 
 ## 👾 Get Involved
 
-If you encounter any bugs or errors, feel free to report them! Join our **Discord server** to receive the *Bug Hunter* role:
+If you encounter any bugs or errors, feel free to report them by joining our **Discord server** and receiving the *Bug Hunter* role:
 
 [Join the Discord Server](https://discord.gg/C6KDYq9Peb)
 
