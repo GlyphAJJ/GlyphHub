@@ -42,7 +42,7 @@ To use any of the scripts, simply copy and paste the loadstring into your Lua ex
 
 - **Glyph Hub Loadstring:**
     ```lua
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/GlyphAJJ/GlyphHub/refs/heads/main/aimlockbyglyphaj.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GlyphAJJ/GlyphHub/refs/heads/main/GlyphHub.lua"))()
     ```
 
 - **Glyph Silent Loadstring:**
